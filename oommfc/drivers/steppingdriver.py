@@ -90,4 +90,4 @@ class SteppingDriver(Driver):
 
     @property
     def _x(self):
-        return "B_hsteps"
+        return "B_hysteresis"
