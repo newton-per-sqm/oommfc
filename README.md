@@ -23,7 +23,7 @@ pip install ubermag==0.66.1
 
 Then install `oommfc` from this tag:
 ```shell
-pip install https://github.com/newton-per-sqm/oommfc/archive/refs/tags/v0.64.1b.zip
+pip install https://github.com/newton-per-sqm/oommfc/archive/refs/tags/stepping-driver-0.66.1.zip
 ```
 
 ## Usage of the `SteppingDriver`
