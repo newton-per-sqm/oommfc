@@ -32,8 +32,13 @@ def driver_script(
         mif += "# OxS_UZeeman\n"
         mif += "Specify Oxs_UZeeman:hysteresis {\n"
         mif += "  Hrange {\n"
-        for Hstart, Hend, n in kwargs["Hsteps"]:
-            mif += "    {{ {} {} {} {} {} {} {} }}\n".format(*Hstart, *Hend, n - 1)
+        if all(item in kwargs for item in ["Hmin", "Hmax", "n"]):
+            Hmin, Hmax, n = kwargs["Hmin"], kwargs["Hmax"], kwargs["n"]
+            mif += "    {{ {} {} {} {} {} {} {} }}\n".format(*Hmin, *Hmax, n - 1)
+            mif += "    {{ {} {} {} {} {} {} {} }}\n".format(*Hmax, *Hmin, n - 1)
+        elif "Hsteps" in kwargs:
+            for Hstart, Hend, n in kwargs["Hsteps"]:
+                mif += "    {{ {} {} {} {} {} {} {} }}\n".format(*Hstart, *Hend, n - 1)
         mif += "  }\n"
         mif += "}\n\n"
 
