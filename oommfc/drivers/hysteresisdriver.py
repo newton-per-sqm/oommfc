@@ -35,6 +35,18 @@ class HysteresisDriver(Driver):
     >>> hd._allowed_attributes
     [...]
 
+    4. How to define multiple steps with this driver.
+    >>> import oommfc as oc
+    ...
+    >>> system = oc.System(name="my_system")
+    ...
+    >>> sd = oc.HysteresisDriver()
+    >>> sd.drive(system, Hsteps=[
+    >>>    [(0, 0, 0), (0, 0, 1), 10],
+    >>>    [(0, 0, 1), (0, 0, -1), 10],
+    >>>    [(0, 0, -1), (0, 0, 0), 10],
+    >>> ])
+
     """
 
     _allowed_attributes = [
